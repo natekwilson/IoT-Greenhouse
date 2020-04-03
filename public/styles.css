@@ -10,7 +10,7 @@ body {
 .header {
   display: flex;
   padding: 20px 100px 0px 100px;
-  background-color: pink;
+  background-color:#9EF0C4;
   color: rgb(20, 14, 27);
 }
 
@@ -76,7 +76,7 @@ body {
   height: 36px;
   padding: 8px;
   background: rgb(134, 38, 59);
-  color: rgb(199, 117, 202);
+  color: #9EF0C4;
   text-align: center;
 }
 
