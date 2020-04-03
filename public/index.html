@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <title>CUTE SHOWDOWN</title>
+</head>
+
+<body>
+  <div class="header">
+    <div class="logo">
+      <a href="index.html">
+        <img src="images/ordinary.png" >
+      </a>
+    </div>
+    <div class="title">
+      <h2>Final Creative Project</h2>
+      <h1>Cute Showdown</h1>
+    </div>
+    <div style= "align-content:center; padding: 1cm;">
+      <a href="create.html">Add a Cute</a>
+      <a href="admin.html">Administration</a>
+    </div>
+  </div>
+  <div id="app" class="content">
+    <section class="image-gallery">
+      <div class="image" v-for="item in sortedArray">
+        <h1>{{item.title}}</h1>
+        <img :src="item.path" />
+        <div style="display: flex; flex-direction: row;">
+          <button @click="upItem(item)" style="margin: 20px;">🧡</button>
+          <h1 style="margin: 20px;">{{item.score}}</h1>
+          <button @click="downItem(item)" style="margin: 20px;">💙</button>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="footer">
+    
+    <a href="https://github.com/natekwilson/final-creative.git">GitHub Repo</a>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.7/vue.js" integrity="sha256-g+Q8DFAmG5+eyRPSydX0LY4TfjsL11XSDrIGerbbEdA=" crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

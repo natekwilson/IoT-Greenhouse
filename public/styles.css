@@ -1,0 +1,173 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  background: rgb(34, 25, 34);
+  padding: 0px;
+  margin: 0px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  padding: 20px 100px 0px 100px;
+  background-color: pink;
+  color: rgb(20, 14, 27);
+}
+
+.header a {
+  color: rgb(20, 14, 27);
+}
+
+.logo img {
+  height: 1in;
+  width: 1in;
+}
+
+.title {
+  margin-top: 10px;
+}
+
+.title h1, .title h2 {
+  margin: 0px;
+}
+
+.title h1 {
+  border-top: 1px solid #000;
+}
+
+/* Footer */
+.footer {
+  height: 50px;
+  padding: 20px 100px 0px 100px;
+}
+
+.footer a {
+  color: rgb(255, 255, 255);
+}
+
+/* Content */
+.content {
+  padding: 20px 100px 0px 100px;
+}
+
+.image h2 {
+  font-size: 1em;
+}
+
+/* Admin */
+.heading {
+  display: flex;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.heading h2 {
+  margin: 0px;
+  margin-left: 10px;
+}
+
+.add, .edit {
+  display: flex;
+}
+
+.circle {
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  padding: 8px;
+  background: rgb(134, 38, 59);
+  color: rgb(199, 117, 202);
+  text-align: center;
+}
+
+/* Form */
+input, textarea, select, button {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1em;
+}
+
+.form {
+  margin-right: 50px;
+}
+
+/* Uploaded images */
+.upload h2 {
+  margin: 0px;
+}
+
+.upload img {
+  max-width: 300px;
+}
+
+/* Suggestions */
+.suggestions {
+  width: 200px;
+  border: 1px solid #ccc;
+}
+
+.suggestion {
+  min-height: 20px;
+}
+
+.suggestion:hover {
+  background-color: pink;
+  color: #fff;
+}
+
+/* Masonry */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.image-gallery {
+  column-gap: 1.5em;
+  color: #fff;
+}
+
+.image {
+  margin: 0 0 1.5em;
+  display: inline-block;
+  width: 3in
+}
+
+.image img {
+  width: 3in;
+}
+
+.heading h2 {
+  color: #fff;
+}
+
+#app {
+  margin: auto;
+  width: 50%;
+  border: 3px solid   pink;
+  text-align: center;
+}
+
+/* Masonry on large screens */
+@media only screen and (max-width: 500px) and (min-width: 500px) {
+  .image-gallery {
+    column-count: 1;
+  }
+}
+
+/* Masonry on medium-sized screens */
+@media only screen and (max-width: 500px) and (min-width: 500px) {
+  .image-gallery {
+    column-count: 1;
+  }
+}
+
+/* Masonry on small screens */
+@media only screen and (max-width: 500px) and (min-width: 500px) {
+  .image-gallery {
+    column-count: 1;
+  }
+}

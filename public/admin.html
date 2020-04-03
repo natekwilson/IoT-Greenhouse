@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <title>Cute Showdown Administration</title>
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo">
+            <a href="index.html">
+              <img src="images/ordinary.png" >
+            </a>
+        </div>
+        <div class="title">
+          <h2>Final Creative Project</h2>
+          <h1>Cute Showdown Administration</h1>
+        </div>
+        <div style= "align-content:center; padding: 1cm;">
+          <a href="create.html">Add a Cute</a>
+          <a href="admin.html">Administration</a>
+        </div>
+      </div>
+  <div id="admin" class="content">
+    <div class="heading">
+      <div class="circle">1</div>
+      <h2>Remove / Edit a Cute</h2>
+    </div>
+    <div class="edit">
+      <div class="form">
+        <input v-model="findTitle" placeholder="Search">
+        <div class="suggestions" style="background-color: white;" v-if="suggestions.length > 0">
+          <div class="suggestion" v-for="s in suggestions" @click="selectItem(s)">{{s.title}}
+          </div>
+        </div>
+      </div>
+      <div class="upload" v-if="findItem">
+        <input v-model="findItem.title">
+        <p></p>
+        <img :src="findItem.path" />
+      </div>
+      <div class="actions" v-if="findItem">
+        <button @click="deleteItem(findItem)">Delete</button>
+        <button @click="changeItem(findItem)">Edit</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.7/vue.js" integrity="sha256-g+Q8DFAmG5+eyRPSydX0LY4TfjsL11XSDrIGerbbEdA=" crossorigin="anonymous"></script>
+  <script src="admin.js"></script>
+</body>
+
+</html>
