@@ -1,0 +1,16 @@
+
+GPIO2 -> Photoresistor1
+GPIO3 -> Temp/Humidity Sensor
+
+GPIO4 -> STBY
+GPIO17 -> AIN1
+GPIO27 -> AIN2
+GPIO22 -> PWMA
+
+GPIO18 -> Moisture Detector
+
+GPIO23
+GPIO24
+
+GPIO25 -> Photo Resistor2
+
