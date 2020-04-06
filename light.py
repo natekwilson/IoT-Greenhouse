@@ -4,4 +4,4 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(25,GPIO.IN)
 
 while True:
-	print GPIO.input(25)
+	print(GPIO.input(25))
