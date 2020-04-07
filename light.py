@@ -5,4 +5,4 @@ GPIO.setup(25,GPIO.IN)
 GPIO.setup(2,GPIO.IN)
 
 while True:
-	print("External: " + GPIO.input(25) + " Internal: " + GPIO.input(2))
+	print("External: " + str(GPIO.input(25)) + " Internal: " + str(GPIO.input(2)))
