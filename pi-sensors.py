@@ -35,7 +35,7 @@ def takeSnapShot():
     internalLight = 25
     externalLight = 2
     moisture = 18
-    humidTemp = 27
+    humidTemp = 3
 
     #INITIALIZE AND SETUP EACH PIN
     GPIO.setmode(GPIO.BCM)
@@ -58,7 +58,7 @@ def takeSnapShot():
     #PRINT DATA
     print("External: " + str(GPIO.input(externalLight))+" Internal: "+ str(GPIO.input(internalLight)))
     print("Temp: " + str(temperature) + " Humidity: " + str(humidity))
-    #print("Temp={0:0.1f}*C  Humidity={1:0.1f}%".format(temperature, humidity))
+    print("Temp={0:0.1f}*C  Humidity={1:0.1f}%".format(temperature, humidity))
     print(GPIO.input(moisture))
 
     #WRITE JSON DATA OBJECT
