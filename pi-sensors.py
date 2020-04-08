@@ -5,7 +5,7 @@ import RPi.GPIO as GPIO
 import Adafruit_DHT
 import json
 
-#Main time loop
+
 
 #Every SNAPSHOTINTERVAL minutes make a snapshot JSON object
 #Every IMAGEINTERVAL snapshots, capture and image
@@ -15,7 +15,7 @@ import json
 snapshotInterval = 1
 imageInterval = 2
 imageCounter = 0
-startTimer()
+
 
 def takeSnapShot():
     data = {}
@@ -71,3 +71,5 @@ def startTimer():
         imageCounter = imageCounter + 1
     elif imageCounter == imageInterval:
         imageCounter = 0
+
+startTimer()
