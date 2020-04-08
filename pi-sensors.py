@@ -57,7 +57,8 @@ def takeSnapShot():
     
     #PRINT DATA
     print("External: " + str(GPIO.input(externalLight))+" Internal: "+ str(GPIO.input(internalLight)))
-    print("Temp={0:0.1f}*C  Humidity={1:0.1f}%".format(temperature, humidity))
+    print("Temp: " + str(temperature) + " Humidity: " + str(humidity))
+    #print("Temp={0:0.1f}*C  Humidity={1:0.1f}%".format(temperature, humidity))
     print(GPIO.input(moisture))
 
     #WRITE JSON DATA OBJECT
