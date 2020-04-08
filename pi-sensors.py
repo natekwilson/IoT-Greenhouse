@@ -26,7 +26,7 @@ def takeSnapShot():
     #Take Image if it's the beginning of a 30minute interval
     if imageCounter == 0:
         imgPathString = (t + ".jpg")
-        captureCMD = "raspistill -q 10 -o /home/pi/greenhouse-logs/images/%s.jpg" % (imgPathString)
+        captureCMD = "raspistill -q 10 -o /home/pi/greenhouse-logs/images/%s" % (imgPathString)
         sendCMD = "scp -i /home/pi/AWS-AL2.pem /home/pi/greenhouse-logs/images/%s ec2-user@iotgreenhouse.natewilsonit.com:greenhouse-logs/%s" %  (imgPathString,imgPathString)
         os.system(captureCMD)
         os.system(sendCMD)
