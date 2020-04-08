@@ -3,43 +3,50 @@ import time
 import os
 import RPi.GPIO as GPIO
 import Adafruit_DHT
+import json
 
 #Main time loop
 
-#Every 2 minutes make a snapshot JSON object
-#Every 15 snapshots, capture and image
+#Every SNAPSHOTINTERVAL minutes make a snapshot JSON object
+#Every IMAGEINTERVAL snapshots, capture and image
 #append that JSON object to a text file and send to the AWS server
 #send image file via SCP
 
-snapshotInterval = 2
-imageInterval = 15
+snapshotInterval = 1
+imageInterval = 2
 imageCounter = 0
 
 def takeSnapShot():
     data = {}
-    print ("This loops on a timer every %d minutes" % interval)
-    t = time.strftime(format["%b%d%Y%H:%M",time.localtime(time.time())])
-    #Take Image if it's the beginning of a 30minute interval
+    print ("This loops on a timer every %d minutes" % snapshotInterval)
+    t = time.strftime("%Y%m%d-%H%M%S")
     imgPathString = ''
-    if imageCounter == 0:
-        os.system("raspistill -q 10 -o /home/pi/greenhouse-logs/images/%s.jpg" (t))
-        imgPathString = (t + ".jpg")
-        os.system("scp -i /home/pi/AWS-AL2.pem /home/pi/greenhouse-logs/images/%s ec2-user@iotgreenhouse.natewilsonit.com:greenhouse-logs/%s" (imgPathString,imgPathString))
-    
 
+    #Take Image if it's the beginning of a 30minute interval
+    if imageCounter == 0:
+        imgPathString = (t + ".jpg")
+        captureCMD = "raspistill -q 10 -o /home/pi/greenhouse-logs/images/%s.jpg" % (imgPathString)
+        sendCMD = "scp -i /home/pi/AWS-AL2.pem /home/pi/greenhouse-logs/images/%s ec2-user@iotgreenhouse.natewilsonit.com:greenhouse-logs/%s" %  (imgPathString,imgPathString)
+        os.system(captureCMD)
+        os.system(sendCMD)
+
+    #BCM GPIO PIN ROLE ASSIGNMENTS 
     internalLight = 25
     externalLight = 2
     moisture = 18
     humidTemp = 27
 
+    #INITIALIZE AND SETUP EACH PIN
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(internalLight,GPIO.IN)
     GPIO.setup(externalLight,GPIO.IN)
     GPIO.setup(moisture, GPIO.IN)
     DHT_SENSOR = Adafruit_DHT.DHT11
 
-    humidity, temperature = Adafruit_DHT.read_retry(DHT_SENSOR, DHT_PIN)
+    #READ IN VALUES
+    humidity, temperature = Adafruit_DHT.read_retry(DHT_SENSOR, humidTemp)
 
+    #ASSINGN VALUES TO data DICTIONARY OBJECT
     data['temp'] = temperature
     data['humid'] = humidity
     data['moisture'] = GPIO.input(moisture)
@@ -47,19 +54,19 @@ def takeSnapShot():
     data['extLight'] =GPIO.input(externalLight)
     data['imgPath'] = imgPathString
     
+    #PRINT DATA
     print("External: " + str(GPIO.input(externalLight))+" Internal: "+ str(GPIO.input(internalLight)))
     print("Temp={0:0.1f}*C  Humidity={1:0.1f}%".format(temperature, humidity))
     print(GPIO.input(moisture))
-    #Make 
+
+    #WRITE JSON DATA OBJECT
     with open('snapshot.json', 'w') as outfile:
-		json.dump(data, outfile)    
-
-
+        json.dump(data, outfile)
 
 def startTimer():
     threading.Timer((snapshotInterval * 60 ), startTimer).start()
     takeSnapShot()
-    if (imageCounter < imageInterval )
+    if imageCounter < imageInterval:
         imageCounter = imageCounter + 1
-    elif (imageCounter == imageInterval)
+    elif imageCounter == imageInterval:
         imageCounter = 0
