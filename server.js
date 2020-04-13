@@ -54,11 +54,11 @@ app.post('/api/items', async (req, res) => {
   const item = new Item({
     title: req.body.title,
     path: req.body.imgPath,
-    temp: req.body.temp,
-    humid: req.body.humid,
-    intLight: req.body.intLight,
-    extLight: req.body.extLight,
-    moisture: req.body.moisture
+    //temp: req.body.temp,
+    //humid: req.body.humid,
+    //: req.body.intLight,
+    //extLight: req.body.extLight,
+    //moisture: req.body.moisture
   });
   try {
     await item.save();
