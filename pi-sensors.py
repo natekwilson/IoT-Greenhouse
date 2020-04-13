@@ -45,7 +45,7 @@ def takeSnapShot():
     dataDict['moisture'] = GPIO.input(moisture)
     dataDict['intLight'] = GPIO.input(internalLight)
     dataDict['extLight'] =GPIO.input(externalLight)
-    dataDict['imgPath'] = serv
+    dataDict['imgPath'] = serverImagePath
     dataDict['title'] = title
     
     #PRINT DATADict
