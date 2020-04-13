@@ -136,9 +136,9 @@ html {
   width: 3in
 }
 
-.image img {
+.flex-container img {
   width: "100px";
-  height: "100px;"
+  height: "100px";
 }
 
 .heading h2 {
