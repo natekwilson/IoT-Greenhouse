@@ -10,7 +10,7 @@ def takeSnapShot():
     dataDict = {}
     print ("This loops on a timer every %d minutes" % snapshotInterval)
     t = time.strftime("%Y%m%d-%H%M%S")
-    title = time.strftime("%m-%d-%H:%M")
+    title = time.strftime("%m-%d-%H%M")
     print(title)
     imgPathString = ''
 
