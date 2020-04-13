@@ -50,12 +50,15 @@ app.listen(9000, () => console.log('Server listening on port 9000!'));
 // Create a new snpashot item in the greenohseu DB 
 app.post('/api/items', async (req, res) => {
   console.log("HEYYYY");
-  console.log(req.body.temp);
-  console.log(req.body.humid);
+
   const item = new Item({
     title: req.body.title,
-    path: req.body.path,
-    score: req.body.score,
+    path: req.body.imgPath,
+    temp: req.body.temp,
+    humid: req.body.humid,
+    intLight: req.body.intLight,
+    extLight: req.body.extLight,
+    moisture: req.body.moisture
   });
   try {
     await item.save();
