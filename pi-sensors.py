@@ -24,7 +24,7 @@ def takeSnapShot():
     imgPathString = ''
 
     #Take Image if it's the beginning of a 30minute interval
-    if imageCounter == 0:
+    if imageCounter == 1:
         imgPathString = (t + ".jpg")
         captureCMD = "raspistill -q 10 -o /home/pi/greenhouse-logs/images/%s" % (imgPathString)
         sendCMD = "scp /home/pi/greenhouse-logs/images/%s ec2-user@iotgreenhouse.natewilsonit.com:greenhouse-logs/%s" %  (imgPathString,imgPathString)
@@ -66,11 +66,12 @@ def takeSnapShot():
         json.dump(data, outfile)
 
 def startTimer():
-    threading.Timer((snapshotInterval * 60 ), startTimer).start()
-    takeSnapShot()
     if imageCounter < imageInterval:
         imageCounter = imageCounter + 1
     elif imageCounter == imageInterval:
         imageCounter = 0
+    threading.Timer((snapshotInterval * 60 ), startTimer).start()
+    takeSnapShot()
+    
 
 startTimer()
