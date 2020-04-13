@@ -144,7 +144,7 @@ html {
   color: #fff;
 }
 
-flex-container {
+.flex-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
