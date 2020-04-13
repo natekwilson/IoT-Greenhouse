@@ -72,6 +72,6 @@ def startTimer():
 
 snapshotInterval = 1
 imageInterval = 2
-imageCounter = 1
+imageCounter = 0
 
 startTimer()
