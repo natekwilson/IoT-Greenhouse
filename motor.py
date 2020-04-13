@@ -23,6 +23,8 @@ GPIO.output(AIN1, GPIO.HIGH)
 GPIO.output(AIN2, GPIO.LOW)
 GPIO.output(PWMA, GPIO.HIGH)
  
-# infinite loop
-while True:
-        time.sleep(1)
+input = input("press key")
+GPIO.output(STBY, GPIO.LOW)
+GPIO.output(AIN1, GPIO.LOW)
+GPIO.output(AIN2, GPIO.LOW)
+GPIO.output(PWMA, GPIO.LOW)
