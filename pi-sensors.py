@@ -10,6 +10,8 @@ def takeSnapShot():
     dataDict = {}
     print ("This loops on a timer every %d minutes" % snapshotInterval)
     t = time.strftime("%Y%m%d-%H%M%S")
+    title = time.strftime("%m-%d-%H:%M")
+    print(title)
     imgPathString = ''
 
     #Take Image if it's the beginning of a 30minute interval
@@ -43,6 +45,7 @@ def takeSnapShot():
     dataDict['intLight'] = GPIO.input(internalLight)
     dataDict['extLight'] =GPIO.input(externalLight)
     dataDict['imgPath'] = imgPathString
+    dataDict['title'] = title
     
     #PRINT DATADict
     print("External: " + str(GPIO.input(externalLight))+" Internal: "+ str(GPIO.input(internalLight)))
@@ -57,7 +60,7 @@ def takeSnapShot():
     print(dataDict)
     print("Beginning POST request")
     url = 'http://iotgreenhouse.natewilsonit.com:9000/api/items'
-    result = requests.post(url, data = dataDict)
+    result = requests.post(url, json = json.dump(dataDict))
     print(result)
 
 def startTimer():
