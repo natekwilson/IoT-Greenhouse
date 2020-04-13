@@ -16,9 +16,10 @@ def takeSnapShot():
 
     #Take Image if it's the beginning of a 30minute interval
     if imageCounter == 1:
-        imgPathString = ("greenhouse-logs/images/" + t + ".jpg")
+        imgPathString = (t + ".jpg")
+        serverImagePath = ("greenhouse-logs/images/" + t + ".jpg")
         captureCMD = "raspistill -q 10 -o /home/pi/greenhouse-logs/images/%s" % (imgPathString)
-        sendCMD = "scp /home/pi/greenhouse-logs/images/%s ec2-user@iotgreenhouse.natewilsonit.com:IoT-Greenhouse/%s" %  (imgPathString,imgPathString)
+        sendCMD = "scp /home/pi/greenhouse-logs/images/%s ec2-user@iotgreenhouse.natewilsonit.com:IoT-Greenhouse/%s" %  (imgPathString,serverImagePath)
         os.system(captureCMD)
         os.system(sendCMD)
 
@@ -44,7 +45,7 @@ def takeSnapShot():
     dataDict['moisture'] = GPIO.input(moisture)
     dataDict['intLight'] = GPIO.input(internalLight)
     dataDict['extLight'] =GPIO.input(externalLight)
-    dataDict['imgPath'] = imgPathString
+    dataDict['imgPath'] = serverImagePath
     dataDict['title'] = title
     
     #PRINT DATADict
