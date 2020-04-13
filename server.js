@@ -54,13 +54,13 @@ app.post('/api/items', async (req, res) => {
   console.log( typeof help )
   console.log( typeof req.body.temp )
   const item = new Item({
-    //title: req.body.title,
-    //path: req.body.imgPath,
-    //temp: req.body.temp,
-    //humid: req.body.humid,
-    //: req.body.intLight,
-    //extLight: req.body.extLight,
-    //moisture: req.body.moisture
+    title: req.body.title,
+    path: req.body.imgPath,
+    temp: req.body.temp,
+    humid: req.body.humid,
+    intLight: req.body.intLight,
+    extLight: req.body.extLight,
+    moisture: req.body.moisture
   });
   try {
     await item.save();

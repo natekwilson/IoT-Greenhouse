@@ -24,7 +24,10 @@
     </div>
   </div>
   <div id="app" class="content">
-    
+    <div class="image" v-for="item in items">
+      <h2>{{item.title}}</h2>
+      <img :src="item.path" />
+    </div>
   </div>
   <div class="footer">
     
