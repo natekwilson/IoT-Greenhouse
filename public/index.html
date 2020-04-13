@@ -23,9 +23,23 @@
     </div>
   </div>
   <div id="app" class="content">
-    <div class="image" >
-      <h2>{{latestItem.title}}</h2>
-      <img :src="latestItem.path" />
+    <div class="flex-container" >
+      <div>
+        <h2>{{latestItem.title}}</h2>
+        <img :src="latestItem.path" />
+      </div>
+      <div>
+        <img src="images/thermometer.png">
+        <h2>{{latestItem.temp}}</h2>
+      </div>
+      <div>
+        <img src="images/bulb.png">
+        <h2>{{latestItem.extLight}}</h2>
+      </div>
+      <div>
+        <img src="images/water-drop.png.png">
+        <h2>{{latestItem.moisture}}</h2>
+      </div>
     </div>
   </div>
   <div class="footer">
