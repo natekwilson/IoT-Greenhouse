@@ -137,10 +137,19 @@ html {
   width: 3in
 }
 
+.small-image{
+  margin: 0 0 1.5em;
+  display: inline-block;
+  width: 1in
+}
+
 .image img {
   width: 3in;
 }
 
+.small-image img {
+  width: 1in;
+}
 .heading h2 {
   color: #fff;
 }
@@ -154,7 +163,6 @@ html {
 
 #app {
   margin: auto;
-  width: 50%;
   border: 3px solid   pink;
   text-align: center;
 }
