@@ -7,7 +7,7 @@ import json
 import requests
 
 def takeSnapShot():
-    global imgPathString
+    global serverImagePath
     dataDict = {}
     print ("This loops on a timer every %d minutes" % snapshotInterval)
     t = time.strftime("%Y%m%d-%H%M%S")
@@ -84,6 +84,6 @@ def startTimer():
 snapshotInterval = 1
 imageInterval = 2
 imageCounter = 0
-imgPathString = ""
+serverImagePath = ""
 
 startTimer()
