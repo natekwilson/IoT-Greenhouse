@@ -60,7 +60,7 @@ def takeSnapShot():
     print(dataDict)
     print("Beginning POST request")
     url = 'http://iotgreenhouse.natewilsonit.com:9000/api/items'
-    result = requests.post(url, json = json.dumps(dataDict))
+    result = requests.post(url, json = dataDict)
     print(result)
 
 def startTimer():
