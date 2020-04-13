@@ -55,8 +55,11 @@ def takeSnapShot():
         json.dump(data, outfile)
 
 def startTimer():
+    global imageCounter
+    global imageInterval
+    global snapshotInterval
     if imageCounter < imageInterval:
-        imageCounter = imageCounter + 1
+        imageCounter += 1
     elif imageCounter == imageInterval:
         imageCounter = 0
     threading.Timer((snapshotInterval * 60 ), startTimer).start()
@@ -69,6 +72,6 @@ def startTimer():
 
 snapshotInterval = 1
 imageInterval = 2
-imageCounter = 0
+imageCounter = 1
 
 startTimer()
