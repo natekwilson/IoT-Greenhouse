@@ -10,7 +10,9 @@ STBY = 4
 AIN1 = 17
 AIN2 = 27
 PWMA = 22
-GPIO.setmode(GPIO.BOARD)
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BCM)
+
 GPIO.setup(STBY, GPIO.OUT)
 GPIO.setup(AIN1, GPIO.OUT)
 GPIO.setup(AIN2, GPIO.OUT)
