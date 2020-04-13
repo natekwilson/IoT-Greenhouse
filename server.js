@@ -12,7 +12,7 @@ app.use(express.static('public'));
 const mongoose = require('mongoose');
 
 // connect to the database
-mongoose.connect('mongodb://localhost:27017/cute', {
+mongoose.connect('mongodb://localhost:27017/greenhouse', {
   useNewUrlParser: true
 });
 
@@ -26,11 +26,15 @@ const upload = multer({
   }
 });
 
-// Create a scheme for items in the show down: a title and a path to an image.
+// Create a scheme for snapshot items in the greenhouse
 const itemSchema = new mongoose.Schema({
   title: String,
   path: String,
-  score: Number
+  humid: Number,
+  temp: Number,
+  moisture: Boolean,
+  intLight: Boolean,
+  extLight: Boolean
 });
 
 itemSchema.virtual('id').get(function() 
@@ -38,13 +42,14 @@ itemSchema.virtual('id').get(function()
   return this._id.toHexString();
 });
 
-// Create a model for items in the cute showdown database
+// Create a model for items in the greenhouse database
 const Item = mongoose.model('Item', itemSchema);
 
 app.listen(9000, () => console.log('Server listening on port 9000!'));
 
-// Create a new item in the cute showdown takes a title and a path to an image.
+// Create a new snpashot item in the greenohseu DB 
 app.post('/api/items', async (req, res) => {
+  console.log("HEYYYY");
   const item = new Item({
     title: req.body.title,
     path: req.body.path,

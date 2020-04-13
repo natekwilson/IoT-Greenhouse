@@ -4,10 +4,10 @@ import os
 import RPi.GPIO as GPIO
 import Adafruit_DHT
 import json
-
+import requests
 
 def takeSnapShot():
-    data = {}
+    dataDict = {}
     print ("This loops on a timer every %d minutes" % snapshotInterval)
     t = time.strftime("%Y%m%d-%H%M%S")
     imgPathString = ''
@@ -36,24 +36,29 @@ def takeSnapShot():
     #READ IN VALUES
     humidity, temperature = Adafruit_DHT.read_retry(DHT_SENSOR, humidTemp)
 
-    #ASSINGN VALUES TO data DICTIONARY OBJECT
-    data['temp'] = temperature
-    data['humid'] = humidity
-    data['moisture'] = GPIO.input(moisture)
-    data['intLight'] = GPIO.input(internalLight)
-    data['extLight'] =GPIO.input(externalLight)
-    data['imgPath'] = imgPathString
+    #ASSINGN VALUES TO dataDict DICTIONARY OBJECT
+    dataDict['temp'] = temperature
+    dataDict['humid'] = humidity
+    dataDict['moisture'] = GPIO.input(moisture)
+    dataDict['intLight'] = GPIO.input(internalLight)
+    dataDict['extLight'] =GPIO.input(externalLight)
+    dataDict['imgPath'] = imgPathString
     
-    #PRINT DATA
+    #PRINT DATADict
     print("External: " + str(GPIO.input(externalLight))+" Internal: "+ str(GPIO.input(internalLight)))
     print("Temp: " + str(temperature) + " Humidity: " + str(humidity))
     print("Temp={0:0.1f}*C  Humidity={1:0.1f}%".format(temperature, humidity))
-    print(GPIO.input(moisture))
+    print("Moisture: " + GPIO.input(moisture))
 
-    #WRITE JSON DATA OBJECT
+    #WRITE JSON DATADict OBJECT
     with open('snapshot.json', 'w') as outfile:
-        json.dump(data, outfile)
-
+        json.dump(dataDict, outfile)
+    
+    print(dataDict)
+    print("Beginning POST request")
+    url = 'http://iotgreenhouse.natewilsonit.com:9000/api/items'
+    result = requests.post(url, data = dataDict)
+    print(result)
 def startTimer():
     global imageCounter
     global imageInterval
