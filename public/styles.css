@@ -18,6 +18,8 @@ body {
   color: rgb(20, 14, 27);
 }
 
+
+
 .logo img {
   height: 1in;
   width: 1in;
@@ -143,6 +145,10 @@ html {
   width: 1in
 }
 
+.small-image h2{
+  color: #fff;
+}
+
 .image img {
   width: 3in;
 }
@@ -163,6 +169,7 @@ html {
 
 #app {
   margin: auto;
+  width: 85%;
   border: 3px solid   pink;
   text-align: center;
 }

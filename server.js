@@ -54,7 +54,7 @@ app.post('/api/items', async (req, res) => {
   const item = new Item({
     title: req.body.title,
     path: req.body.imgPath,
-    temp: (((req.body.temp) *(9/5))+32),
+    temp: (((req.body.temp) *(9/5))+32).toFixed(2),
     humid: req.body.humid,
     intLight: req.body.intLight,
     extLight: req.body.extLight,
