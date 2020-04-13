@@ -13,3 +13,4 @@ GPIO.setup(channel, GPIO.IN)
 while True:
         
         time.sleep(1)
+        print(GPIO.input(channel))
