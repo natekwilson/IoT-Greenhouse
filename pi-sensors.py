@@ -6,17 +6,6 @@ import Adafruit_DHT
 import json
 
 
-
-#Every SNAPSHOTINTERVAL minutes make a snapshot JSON object
-#Every IMAGEINTERVAL snapshots, capture and image
-#append that JSON object to a text file and send to the AWS server
-#send image file via SCP
-
-snapshotInterval = 1
-imageInterval = 2
-imageCounter = 0
-
-
 def takeSnapShot():
     data = {}
     print ("This loops on a timer every %d minutes" % snapshotInterval)
@@ -73,5 +62,13 @@ def startTimer():
     threading.Timer((snapshotInterval * 60 ), startTimer).start()
     takeSnapShot()
     
+#Every SNAPSHOTINTERVAL minutes make a snapshot JSON object
+#Every IMAGEINTERVAL snapshots, capture and image
+#append that JSON object to a text file and send to the AWS server
+#send image file via SCP
+
+snapshotInterval = 1
+imageInterval = 2
+imageCounter = 0
 
 startTimer()
