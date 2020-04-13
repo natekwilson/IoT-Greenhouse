@@ -48,7 +48,7 @@ def takeSnapShot():
     print("External: " + str(GPIO.input(externalLight))+" Internal: "+ str(GPIO.input(internalLight)))
     print("Temp: " + str(temperature) + " Humidity: " + str(humidity))
     print("Temp={0:0.1f}*C  Humidity={1:0.1f}%".format(temperature, humidity))
-    print("Moisture: " + GPIO.input(moisture))
+    print("Moisture: " + str(GPIO.input(moisture)))
 
     #WRITE JSON DATADict OBJECT
     with open('snapshot.json', 'w') as outfile:
@@ -59,6 +59,7 @@ def takeSnapShot():
     url = 'http://iotgreenhouse.natewilsonit.com:9000/api/items'
     result = requests.post(url, data = dataDict)
     print(result)
+
 def startTimer():
     global imageCounter
     global imageInterval
