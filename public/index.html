@@ -19,14 +19,13 @@
       <h1>Status & Control</h1>
     </div>
     <div style= "align-content:center; padding: 1cm;">
-      <a href="admin.html">Log</a>
       <a href="admin.html">Gallery</a>
     </div>
   </div>
   <div id="app" class="content">
-    <div class="image" v-for="item in items">
-      <h2>{{item.title}}</h2>
-      <img :src="item.path" />
+    <div class="image" >
+      <h2>{{latestItem.title}}</h2>
+      <img :src="latestItem.path" />
     </div>
   </div>
   <div class="footer">
