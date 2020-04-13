@@ -136,9 +136,8 @@ html {
   width: 3in
 }
 
-.flex-container img {
-  width: "100px";
-  height: "100px";
+.image img {
+  width: 3in;
 }
 
 .heading h2 {
@@ -150,12 +149,6 @@ html {
   width: 50%;
   border: 3px solid   pink;
   text-align: center;
-}
-
-.flex-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
 }
 
 /* Masonry on large screens */
