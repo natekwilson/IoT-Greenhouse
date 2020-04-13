@@ -42,13 +42,16 @@ var app = new Vue({
   computed: {
     sortedArray: function() {
       function compare(a, b) {
-        if (a.score > b.score)
+        if (a.title > b.title)
           return -1;
-        if (a.score < b.score)
+        if (a.title < b.title)
           return 1;
         return 0;
       }
         return this.items.sort(compare);
+    },
+    latestItem() {
+      return this.items.slice(-1)[0]
     }
   }
 });
