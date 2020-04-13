@@ -43,7 +43,7 @@ def takeSnapShot():
     #ASSINGN VALUES TO dataDict DICTIONARY OBJECT
     dataDict['temp'] = temperature
     dataDict['humid'] = humidity
-    dataDict['moisture'] = GPIO.input(moisture)
+    dataDict['moisture'] = not GPIO.input(moisture)
     dataDict['intLight'] = not GPIO.input(internalLight)
     dataDict['extLight'] = not GPIO.input(externalLight)
     dataDict['imgPath'] = serverImagePath
