@@ -17,14 +17,14 @@ def takeSnapShot():
 
     #Take Image if it's the beginning of a 30minute interval
     if imageCounter == 1:
-        #imgPathString = (t + ".jpg")
-        imgPathString = "20200413-044415.jpg"
-        #serverImagePath = ("images/" + t + ".jpg")
-        serverImagePath = "images/20200413-044415.jpg"
+        imgPathString = (t + ".jpg")
+        #imgPathString = "20200413-044415.jpg"
+        serverImagePath = ("images/" + t + ".jpg")
+        #serverImagePath = "images/20200413-044415.jpg"
         captureCMD = "raspistill -q 10 -o /home/pi/greenhouse-logs/images/%s" % (imgPathString)
         sendCMD = "scp /home/pi/greenhouse-logs/images/%s ec2-user@iotgreenhouse.natewilsonit.com:IoT-Greenhouse/public/%s" %  (imgPathString,serverImagePath)
-        #os.system(captureCMD)
-        #os.system(sendCMD)
+        os.system(captureCMD)
+        os.system(sendCMD)
 
     #BCM GPIO PIN ROLE ASSIGNMENTS 
     internalLight = 25
