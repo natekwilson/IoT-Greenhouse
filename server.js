@@ -46,7 +46,7 @@ itemSchema.virtual('id').get(function()
 // Create a model for items in the greenhouse database
 const Item = mongoose.model('Item', itemSchema);
 
-app.listen(9000, () => console.log('Server listening on port 80 !'));
+app.listen(9000, () => console.log('Server listening on port 9000 !'));
 
 // Create a new snpashot item in the greenohseu DB 
 app.post('/api/items', async (req, res) => {
