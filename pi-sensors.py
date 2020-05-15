@@ -22,7 +22,7 @@ def takeSnapShot():
         serverImagePath = ("images/" + t + ".jpg")
         #serverImagePath = "images/20200413-044415.jpg"
         captureCMD = "raspistill -q 10 -o /home/pi/greenhouse-logs/images/%s" % (imgPathString)
-        sendCMD = "scp /home/pi/greenhouse-logs/images/%s ec2-user@iotgreenhouse.natewilsonit.com:IoT-Greenhouse/public/%s" %  (imgPathString,serverImagePath)
+        sendCMD = "scp /home/pi/greenhouse-logs/images/%s ec2-user@iotgreenhouse.natewilsonit.com:/web-projects/IoT-Greenhouse/public/%s" %  (imgPathString,serverImagePath)
         os.system(captureCMD)
         os.system(sendCMD)
 
@@ -63,7 +63,7 @@ def takeSnapShot():
     
     print(dataDict)
     print("Beginning POST request")
-    url = 'http://iotgreenhouse.natewilsonit.com:9000/api/items'
+    url = 'https://iotgreenhouse.natewilsonit.com/api/items'
     result = requests.post(url, json = dataDict)
     print(result)
 
