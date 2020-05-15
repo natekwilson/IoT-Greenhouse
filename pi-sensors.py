@@ -22,7 +22,7 @@ def takeSnapShot():
         serverImagePath = ("images/" + t + ".jpg")
         #serverImagePath = "images/20200413-044415.jpg"
         captureCMD = "raspistill -q 10 -o /home/pi/greenhouse-logs/images/%s" % (imgPathString)
-        sendCMD = "scp /home/pi/greenhouse-logs/images/%s ec2-user@iotgreenhouse.natewilsonit.com:/web-projects/IoT-Greenhouse/public/%s" %  (imgPathString,serverImagePath)
+        sendCMD = "scp /home/pi/greenhouse-logs/images/%s ec2-user@iotgreenhouse.natewilsonit.com:web-projects/IoT-Greenhouse/public/%s" %  (imgPathString,serverImagePath)
         os.system(captureCMD)
         os.system(sendCMD)
 
