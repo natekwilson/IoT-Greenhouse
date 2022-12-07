@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/BYUCS260/lab-5-mongodb-natekwilson#readme",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "mongoose": "^5.7.11",
     "multer": "^1.4.2"
   }
